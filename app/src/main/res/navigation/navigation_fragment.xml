@@ -7,31 +7,16 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.messager.HomeFragment"
+        android:name="com.example.messager.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_detailMessageFragment"
-            app:destination="@id/navigation" />
         <action
             android:id="@+id/action_homeFragment_to_settingFragment2"
             app:destination="@id/settingFragment2" />
     </fragment>
-    <navigation android:id="@+id/navigation"
-        app:startDestination="@id/detailMessageFragment">
-        <fragment
-            android:id="@+id/detailMessageFragment"
-            android:name="com.example.messager.DetailMessageFragment"
-            android:label="fragment_detail_message"
-            tools:layout="@layout/fragment_detail_message">
-            <action
-                android:id="@+id/action_detailMessageFragment_to_homeFragment"
-                app:destination="@id/homeFragment" />
-        </fragment>
-    </navigation>
     <fragment
         android:id="@+id/settingFragment2"
-        android:name="com.example.messager.SettingFragment"
+        android:name="com.example.messager.ui.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
 </navigation>

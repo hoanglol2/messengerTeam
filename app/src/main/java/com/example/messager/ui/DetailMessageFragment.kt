@@ -1,4 +1,4 @@
-package com.example.messager
+package com.example.messager.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.messager.R
+import com.example.messager.adapter.MessageDetailAdapter
+import com.example.messager.model.MessageDetailModel
+import com.example.messager.model.UserModel
 import kotlinx.android.synthetic.main.fragment_detail_message.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -88,16 +92,37 @@ class DetailMessageFragment : Fragment() {
 
 
         var usersList = listOf(
-            UserModel(1, R.drawable.avatar_1, "Selma"),
-            UserModel(2, R.drawable.avatar_2, "Kone na"),
-            UserModel(3, R.drawable.avatar_3, "jean la"),
-            UserModel(4, R.drawable.avatar_4, "Konta"),
-            UserModel(5, R.drawable.avatar_5, "Tohoma")
+            UserModel(
+                1,
+                R.drawable.avatar_1,
+                "Selma"
+            ),
+            UserModel(
+                2,
+                R.drawable.avatar_2,
+                "Kone na"
+            ),
+            UserModel(
+                3,
+                R.drawable.avatar_3,
+                "jean la"
+            ),
+            UserModel(
+                4,
+                R.drawable.avatar_4,
+                "Konta"
+            ),
+            UserModel(
+                5,
+                R.drawable.avatar_5,
+                "Tohoma"
+            )
         )
 
         Log.d("Hoang", usersList.toString())
 
-        val adapter = MessageDetailAdapter(messengersList)
+        val adapter =
+            MessageDetailAdapter(messengersList)
         rvMessenger.adapter = adapter
         rvMessenger.layoutManager =
             LinearLayoutManager(activity)

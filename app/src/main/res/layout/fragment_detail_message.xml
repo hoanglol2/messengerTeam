@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailMessageFragment">
+    tools:context=".ui.DetailMessageFragment">
 
     <ImageView
         android:id="@+id/imageView"
