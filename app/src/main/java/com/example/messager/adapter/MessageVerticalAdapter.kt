@@ -1,11 +1,12 @@
-package com.example.messager
+package com.example.messager.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.messager.R
+import com.example.messager.model.MessageVerticalModel
 import kotlinx.android.synthetic.main.item_message_vertical.view.*
 
 class MessageVerticalAdapter(
@@ -44,7 +45,9 @@ class MessageVerticalAdapter(
 
 
             if (todos[position].isActive) {
-                tvTime.setTextColor(ContextCompat.getColor(this.context, R.color.green_line))
+                tvTime.setTextColor(ContextCompat.getColor(this.context,
+                    R.color.green_line
+                ))
             }
 
             if (todos[position].count === 0) {

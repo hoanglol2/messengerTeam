@@ -1,14 +1,16 @@
-package com.example.messager
+package com.example.messager.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.messager.R
+import com.example.messager.adapter.MessageHorizontalAdapter
+import com.example.messager.adapter.MessageVerticalAdapter
+import com.example.messager.model.MessageHorizontalModel
+import com.example.messager.model.MessageVerticalModel
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -21,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelectedListener {
+class HomeFragment : BaseFragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -56,7 +58,12 @@ class HomeFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
                     "drawable",
                     activity?.packageName
                 )
-            messageHorizontal.add(MessageHorizontalModel(idResource, "Selma $item"))
+            messageHorizontal.add(
+                MessageHorizontalModel(
+                    idResource,
+                    "Selma $item"
+                )
+            )
             messageVertical.add(
                 MessageVerticalModel(
                     idResource,
@@ -70,26 +77,24 @@ class HomeFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
         }
 
         // Initialize adapter
-        val adapter = MessageHorizontalAdapter(messageHorizontal)
+        val adapter = MessageHorizontalAdapter(
+            messageHorizontal
+        )
         // set layout manager
         rvMessageHorizontal.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         // set adapter
         rvMessageHorizontal.adapter = adapter
 
-        val adapterBig = MessageVerticalAdapter(messageVertical)
+        val adapterBig =
+            MessageVerticalAdapter(messageVertical)
         rvMessageVertical.adapter = adapterBig
         rvMessageVertical.layoutManager =
             LinearLayoutManager(activity)
 
-
-
-//        btnNav.setOnNavigationItemSelectedListener(this)
     }
 
     companion object {
-        val KEY_NAV = "navigation"
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             HomeFragment().apply {
@@ -98,19 +103,5 @@ class HomeFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelect
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
-
-    override fun onClick(v: View?) {
-//        var bundle = bundleOf()
-        this.findNavController().navigate(R.id.action_homeFragment_to_detailMessageFragment)
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.miSetting -> {
-                this.findNavController().navigate(R.id.action_homeFragment_to_settingFragment2)
-            }
-        }
-        return true
     }
 }

@@ -1,4 +1,4 @@
-package com.example.messager
+package com.example.messager.ui
 
 import android.os.Bundle
 import android.view.View
