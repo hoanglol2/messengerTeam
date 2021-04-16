@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+
+    <ImageView
+        android:id="@+id/ivMsgAvatar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/avatar_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFromMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/text_radius"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Hi Victor"
+        android:textColor="@color/gray"
+        app:layout_constraintBottom_toBottomOf="@+id/ivMsgAvatar"
+        app:layout_constraintStart_toEndOf="@+id/ivMsgAvatar"
+        app:layout_constraintTop_toTopOf="@+id/ivMsgAvatar"
+     />
+
+    <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Urdu to English"
+        app:layout_constraintStart_toStartOf="@+id/tvFromMsg"
+        app:layout_constraintTop_toBottomOf="@+id/tvFromMsg" />
+
+    <TextView
+        android:id="@+id/tvToMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/text_radius_primary"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Hi Victor"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/ivCheck"
+        app:layout_constraintTop_toBottomOf="@+id/tvLanguage" />
+
+    <ImageView
+        android:id="@+id/ivCheck"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_check_muted"
+        app:layout_constraintBottom_toBottomOf="@+id/tvToMsg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvToMsg"
+        app:layout_constraintVertical_bias="0.36" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
