@@ -1,12 +1,20 @@
 package com.example.messager.adapter
 
+import android.app.Activity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.messager.R
 import com.example.messager.model.MessageVerticalModel
+import com.example.messager.ui.DetailMessageFragment
+import com.example.messager.ui.LogInFragment
 import kotlinx.android.synthetic.main.item_message_vertical.view.*
 
 class MessageVerticalAdapter(
@@ -30,11 +38,6 @@ class MessageVerticalAdapter(
         return 0
     }
 
-    override fun getItemViewType(position: Int): Int {
-//        return todos.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM
-        return 0;
-    }
-
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
         holder.itemView.apply {
             tvName.text = todos[position].name
@@ -45,14 +48,29 @@ class MessageVerticalAdapter(
 
 
             if (todos[position].isActive) {
-                tvTime.setTextColor(ContextCompat.getColor(this.context,
-                    R.color.green_line
-                ))
+                tvTime.setTextColor(
+                    ContextCompat.getColor(
+                        this.context,
+                        R.color.green_line
+                    )
+                )
             }
 
             if (todos[position].count === 0) {
                 tvCount.visibility = (View.GONE)
             }
+
+            setOnClickListener {
+                val packages = bundleOf(keyPackage to todos[position].id)
+                (this.context as? AppCompatActivity)?.supportFragmentManager?.beginTransaction()
+                    ?.add(android.R.id.content, DetailMessageFragment.newInstance(packages), "LogInFragment")?.addToBackStack("")?.commit()
+
+            }
         }
     }
+
+    companion object {
+        const val keyPackage = "myNavigation"
+    }
+
 }

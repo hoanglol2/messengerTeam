@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.messager.MainActivity
 import com.example.messager.R
 import com.example.messager.adapter.MessageDetailAdapter
+import com.example.messager.adapter.MessageVerticalAdapter
 import com.example.messager.model.MessageDetailModel
 import com.example.messager.model.UserModel
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_detail_message.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,6 +36,15 @@ class DetailMessageFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
+
+//            buttonNavigationView.isEnabled = false
+
+            val packages = it.getInt(MessageVerticalAdapter.keyPackage)
+
+            Log.d("Hoang", packages.toString())
+
+
         }
     }
 
@@ -46,6 +58,8 @@ class DetailMessageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        (activity as? MainActivity)?.toggleNavigation(true)
 
         var messengersList = mutableListOf(
             MessageDetailModel(
@@ -139,12 +153,9 @@ class DetailMessageFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(agr : Bundle) =
             DetailMessageFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+                arguments = agr
             }
     }
 }
