@@ -3,10 +3,12 @@ package com.example.messager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -19,7 +21,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), BottomNavigationView.OnNavigationItemSelectedListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -47,7 +49,7 @@ class HomeFragment : BaseFragment() {
         var messageHorizontal = mutableListOf<MessageHorizontalModel>()
         var messageVertical = mutableListOf<MessageVerticalModel>()
 
-        for (item in 0 until 100) {
+        for (item in 0 until 20) {
             val idResource =
                 this.resources.getIdentifier(
                     "avatar_${item % 5 + 1}",
@@ -79,6 +81,10 @@ class HomeFragment : BaseFragment() {
         rvMessageVertical.adapter = adapterBig
         rvMessageVertical.layoutManager =
             LinearLayoutManager(activity)
+
+
+
+//        btnNav.setOnNavigationItemSelectedListener(this)
     }
 
     companion object {
@@ -97,5 +103,14 @@ class HomeFragment : BaseFragment() {
     override fun onClick(v: View?) {
 //        var bundle = bundleOf()
         this.findNavController().navigate(R.id.action_homeFragment_to_detailMessageFragment)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.miSetting -> {
+                this.findNavController().navigate(R.id.action_homeFragment_to_settingFragment2)
+            }
+        }
+        return true
     }
 }

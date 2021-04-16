@@ -13,8 +13,8 @@ class MessageVerticalAdapter(
 ) : RecyclerView.Adapter<MessageVerticalAdapter.MessageViewHolder>() {
     inner class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    final val VIEW_TYPE_LOADING = 0
-    final val VIEW_TYPE_ITEM = 1
+    final val VIEW_TYPE_LOADING: Int = 0
+    final val VIEW_TYPE_ITEM: Int = 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -30,7 +30,8 @@ class MessageVerticalAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return todos.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM
+//        return todos.get(position) == null ? VIEW_TYPE_LOADING : VIEW_TYPE_ITEM
+        return 0;
     }
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
@@ -44,7 +45,6 @@ class MessageVerticalAdapter(
 
             if (todos[position].isActive) {
                 tvTime.setTextColor(ContextCompat.getColor(this.context, R.color.green_line))
-
             }
 
             if (todos[position].count === 0) {
