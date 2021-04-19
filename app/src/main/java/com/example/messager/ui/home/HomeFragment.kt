@@ -1,4 +1,4 @@
-package com.example.messager.ui
+package com.example.messager.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +11,7 @@ import com.example.messager.adapter.MessageHorizontalAdapter
 import com.example.messager.adapter.MessageVerticalAdapter
 import com.example.messager.model.MessageHorizontalModel
 import com.example.messager.model.MessageVerticalModel
+import com.example.messager.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
