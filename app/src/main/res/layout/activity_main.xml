@@ -7,15 +7,27 @@
     tools:context=".MainActivity">
 
 
-     <fragment
-        android:id="@+id/fragment"
+    <fragment
+        android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/btnNav"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNavigationView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation_fragment"
-        tools:layout_editor_absoluteX="158dp" />
+        tools:ignore="UnknownId" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/buttonNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:elevation="-1dp"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/button_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

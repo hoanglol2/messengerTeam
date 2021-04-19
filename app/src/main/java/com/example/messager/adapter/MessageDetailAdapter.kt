@@ -1,9 +1,11 @@
-package com.example.messager
+package com.example.messager.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.messager.R
+import com.example.messager.model.MessageDetailModel
 import kotlinx.android.synthetic.main.item_messenger.view.*
 
 class MessageDetailAdapter(

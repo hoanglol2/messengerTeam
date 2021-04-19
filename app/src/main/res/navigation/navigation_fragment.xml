@@ -3,24 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_fragment"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@+id/navigation_home">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.messager.HomeFragment"
+        android:id="@+id/navigation_home"
+        android:name="com.example.messager.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_detailMessageFragment"
-            app:destination="@id/detailMessageFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/detailMessageFragment"
-        android:name="com.example.messager.DetailMessageFragment"
-        android:label="fragment_detail_message"
-        tools:layout="@layout/fragment_detail_message" >
-        <action
-            android:id="@+id/action_detailMessageFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        android:id="@+id/navigation_call"
+        android:name="com.example.messager.ui.call.CallFragment"
+        android:label="fragment_call"
+        tools:layout="@layout/fragment_call" />
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.example.messager.ui.camera.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.messager.ui.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
 </navigation>

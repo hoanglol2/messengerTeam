@@ -1,9 +1,11 @@
-package com.example.messager
+package com.example.messager.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.messager.R
+import com.example.messager.model.MessageHorizontalModel
 import kotlinx.android.synthetic.main.item_message_horizontal.view.*
 
 class MessageHorizontalAdapter(
@@ -27,5 +29,6 @@ class MessageHorizontalAdapter(
             ivImage.setImageResource(todos[position].src)
         }
     }
+
 
 }

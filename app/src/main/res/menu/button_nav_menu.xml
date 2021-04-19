@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/miMessage"
+        android:id="@+id/navigation_home"
         android:title="Message"
         android:icon="@drawable/ic_messenger"
         android:iconTint="@color/green_line"/>
 
     <item
-        android:id="@+id/miCall"
+        android:id="@+id/navigation_call"
         android:title="Call"
         android:icon="@drawable/ic_call"/>
 
     <item
-        android:id="@+id/miCamera"
+        android:id="@+id/navigation_camera"
         android:title="Camera"
         android:icon="@drawable/ic_camera"/>
 
     <item
-        android:id="@+id/miSetting"
+        android:id="@+id/navigation_setting"
         android:title="Setting"
         android:icon="@drawable/ic_setting"/>
 </menu>
